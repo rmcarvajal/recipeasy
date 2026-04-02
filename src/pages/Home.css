@@ -31,3 +31,38 @@
   gap: 40px;
   font-weight: 600;
 }
+
+/* Contenedor blanco con sombra suave */
+.search-container {
+  display: flex;
+  max-width: 600px;
+  margin: 40px auto; /* Centra el buscador y le da aire arriba */
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px; /* Bordes un poco rectos pero suavizados */
+  overflow: hidden; /* Para que el botón no se salga de las esquinas */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.search-input {
+  flex: 1; 
+  border: none;
+  padding: 15px 20px;
+  outline: none; 
+  font-size: 16px;
+  color: #666;
+}
+
+.search-button {
+  background-color: #2D5A27; 
+  color: white;
+  border: none;
+  padding: 0 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.search-button:hover {
+  background-color: #1e3d1a; 
+}
