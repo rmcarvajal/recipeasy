@@ -1,0 +1,33 @@
+/* src/pages/Home.css */
+.home-container {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.hero-section {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+  background-color: #FF7A50;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+  font-weight: 600;
+}

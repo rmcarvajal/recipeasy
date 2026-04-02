@@ -1,13 +1,13 @@
 import { Navbar } from '../components/Navbar';
+import './Home.css';
 
 const Home = () => {
   return (
-    <div>
+    <div className="home-container">
       <Navbar />
-
-      <main style={{ textAlign: 'center', padding: '50px' }}>
-        <h1 style={{ fontSize: '3rem', color: '#333' }}>Recipeasy</h1>
-        <p>Próximamente: Buscador y Recetas 👩‍🍳</p>
+      <main className="hero-section">
+        <h1 className="hero-title">Recipeasy</h1>
+        <p>Proximamente: Buscador y Recetas</p>
       </main>
     </div>
   );
