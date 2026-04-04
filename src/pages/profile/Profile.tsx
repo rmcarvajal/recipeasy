@@ -1,4 +1,3 @@
-// src/pages/Profile.tsx
 import { Navbar } from '../../components/Navbar';
 import './Profile.css';
 
