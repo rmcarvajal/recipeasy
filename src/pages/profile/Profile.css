@@ -1,0 +1,71 @@
+.profile-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f9f9f9; 
+}
+
+.profile-card {
+  max-width: 900px;
+  margin: 40px auto;
+  background-color: white;
+  border-radius: 15px;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.user-info {
+  display: flex;
+  gap: 30px;
+}
+
+.avatar-placeholder {
+  width: 120px;
+  height: 120px;
+  background-color: #FF7A50;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  color: white;
+}
+
+.user-details h2 {
+  font-size: 32px;
+  margin: 0;
+  color: #222;
+}
+
+.user-details p {
+  color: #777;
+  margin: 5px 0;
+}
+
+.profile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-edit {
+  background-color: #2D5A27;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-logout {
+  background-color: #FF7A50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
