@@ -64,3 +64,19 @@
 .search-button:hover {
   background-color: #1e3d1a; 
 }
+
+.logo{
+  width: 200px;
+  height: 60px;
+}
+
+.hat{
+  width: 120px;
+  height: 120px;
+}
+
+.hat-container{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}

@@ -87,7 +87,7 @@ export const Signup = () => {
         </div>
 
 
-        <div className="w-screen h-210 bg-coral flex flex-col lg:w-1/2 lg:h-screen md:p-20 lg:p-30">
+        <div className="w-screen h-210 bg-coral flex flex-col lg:w-1/2 lg:h-full md:p-20 lg:p-30">
             <img src={logo} className="w-[361.41px] h-20 mt-4" alt="logo" />
 
             <div className="flex flex-col text-white font-extrabold text-[55px] ml-4">

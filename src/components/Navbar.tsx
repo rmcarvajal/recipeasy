@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'; 
 import '../pages/home/Home.css';
+import logo from "../assets/logo.svg"
 
 export const Navbar = () => {
   return (
     <nav className="navbar">
-      <Link to="/" className="logo" style={{ textDecoration: 'none', color: 'white' }}>
-        Recipeasy
+      <Link to="/" >
+        <img src={logo} className='logo'/>
       </Link>
       
       <div className="nav-links">
