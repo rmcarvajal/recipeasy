@@ -1,13 +1,16 @@
 import mail from "../../assets/Mail.svg"
 import lock from "../../assets/Lock.svg"
+import logo from "../../assets/logo.svg"
+import chefhat from "../../assets/chefhat.svg"
+
 
 export const Login = () => {
     return(
-    <div className="bg-smoke">
+    <div className="bg-smoke flex flex-col items-center ">
 
-        <div className="w-100 h-[698.41px] drop-shadow-lg bg-white p-10 rounded-[20px]">
+        <div className="w-100 h-[698.41px] drop-shadow-2xl bg-white p-10 rounded-[20px] ">
 
-            <div className="flex w-[320px] items-end justify-between">
+            <div className="flex w-[320px] items-end justify-between pb-10">
 
                 <button className="text-coral font-bold border-b-4 h-14 text-[25px] w-37.5">Log In</button>
                 <button className="text-gray-400 font-bold border-b-2 h-14 text-[25px] w-37.5">Sign In</button>
@@ -51,12 +54,68 @@ export const Login = () => {
                 <p className="text-coral">Forgot password?</p>
             </div>
 
-            <button className="bg-forest text-white w-[320px] h-[77.5px] font-extrabold rounded-[18px]">Log In</button>
+            <button className="bg-forest text-white w-[320px] h-[77.5px] font-extrabold rounded-[18px] text-[24px]">Log In</button>
         </div>
         
-        <div>
-            <p>Don't have an account?</p>
-            <p>Sign Up</p>
+        <div className="flex items-center pt-10 ">
+            <p className="text-[18px] text-charcoal-100">Don't have an account?</p>
+            <p className="text-[20px] text-coral font-semibold">Sign Up</p>
+        </div>
+
+        <div className="w-screen h-210 bg-coral flex flex-col">
+            <img src={logo} className="w-[361.41px] h-20" alt="logo" />
+
+            <div className="flex flex-col text-white font-extrabold text-[55px]">
+                <p>
+                    Your
+                </p>
+
+                <p>
+                    Quick
+                </p>
+
+                <p>
+                    Recipe
+                </p>
+
+                <p>
+                    Guide
+                </p>
+            </div>
+
+            <div>
+
+                <div className="flex items-center">
+                    <div className="w-10.75 h-10.75 bg-white rounded-full flex justify-center items-center m-4">
+                    <img src={chefhat} className="w-6.75 h-6.75 fill-coral" alt="chefhat" />                        
+                    </div>
+                    <p className="text-white text-[24px]">Delicious recipes from around the world</p>
+                </div>
+
+                <div className="flex items-center">
+                    <div className="w-10.75 h-10.75 bg-white rounded-full flex justify-center items-center m-4">
+                    <img src={chefhat} className="w-6.75 h-6.75 fill-coral" alt="chefhat" />                        
+                    </div>
+                    <p className="text-white text-[24px]">Share your own with our community</p>
+                </div>
+
+
+                <div className="flex items-center">
+                    <div className="w-10.75 h-10.75 bg-white rounded-full flex justify-center items-center m-4">
+                    <img src={chefhat} className="w-6.75 h-6.75 fill-coral" alt="chefhat" />                        
+                    </div>
+                    <p className="text-white text-[24px]">Get to the action quickly</p>
+                </div>
+
+                                <div className="flex items-center">
+                    <div className="w-10.75 h-10.75 bg-white rounded-full flex justify-center items-center m-4">
+                    <img src={chefhat} className="w-6.75 h-6.75 fill-coral" alt="chefhat" />                        
+                    </div>
+                    <p className="text-white text-[24px]">Save and organize your favorite recipes</p>
+                </div>
+
+            </div>
+
         </div>
 
     </div>
