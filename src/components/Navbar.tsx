@@ -10,9 +10,9 @@ export const Navbar = () => {
       </Link>
       
       <div className="nav-links">
-        <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>Home</Link>
-        <Link to="/recipes" style={{ color: 'white', textDecoration: 'none' }}>Recipes</Link>        
-        <Link to="/profile" style={{ color: 'white', textDecoration: 'none' }}>Profile</Link>
+        <Link to="/" style={{ color: 'white' }}>Home</Link>
+        <Link to="/recipes" style={{ color: 'white' }}>Recipes</Link>        
+        <Link to="/profile" style={{ color: 'white' }}>Profile</Link>
       </div>
     </nav>
   );
