@@ -1,23 +1,18 @@
-interface MealProps {
-  title: string;
-  time: string;
-  rating: number;
-  image: string;
-}
+import './Card.meal.css';
+import type { MealAPI } from '../types/meal'; 
 
-export const MealCard = ({ title, time, rating, image }: MealProps) => {
+export const MealCard = ({ meal }: { meal: MealAPI }) => {
   return (
     <div className="meal-card">
       <div className="card-image-container">
-        <img src={image} alt={title} className="card-image" />
+        <img src={meal.strMealThumb} alt={meal.strMeal} className="card-image" />
         <button className="favorite-btn">❤️</button>
       </div>
       
       <div className="card-content">
-        <h3>{title}</h3>
+        <h3>{meal.strMeal}</h3>
         <div className="card-info">
-          <span>⏱️ {time} min</span>
-          <span>⭐ {rating}</span>
+          <span>🏷️ {meal.strCategory}</span>
         </div>
       </div>
     </div>
