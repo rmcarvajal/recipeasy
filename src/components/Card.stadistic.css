@@ -1,0 +1,33 @@
+.stadistic-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 25px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.stadistic-card:hover {
+  transform: translateY(-5px);
+}
+
+.stadistic-icon {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.stadistic-value {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 5px 0;
+  color: #222;
+}
+
+.stadistic-label {
+  font-size: 14px;
+  color: #777;
+  margin: 0;
+}

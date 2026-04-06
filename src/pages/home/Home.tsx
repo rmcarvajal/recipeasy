@@ -1,6 +1,7 @@
 import { Navbar } from '../../components/Navbar';
 import './Home.css';
 import chefhat from "../../assets/ChefHat.svg"
+import { StadisticCard } from '../../components/Card.stadistic';
 
 const Home = () => {
   return (
@@ -16,7 +17,11 @@ const Home = () => {
                 className="search-input"/>
         <button className="search-button">Search</button>
         </div>
-        
+        <div className="stadistics-container">
+              <StadisticCard icon="🍳" value="25+" label="Delicious Recipes" />
+              <StadisticCard icon="📂" value="8+" label="Categories" />
+              <StadisticCard icon="🌎" value="12+" label="Global Cuisines" />
+        </div>
       </main>
     </div>
   );
