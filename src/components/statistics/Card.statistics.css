@@ -1,4 +1,4 @@
-.stadistic-card {
+.statistic-card {
   background-color: white;
   border-radius: 12px;
   padding: 25px;
@@ -9,24 +9,24 @@
   border: 1px solid #f0f0f0;
 }
 
-.stadistic-card:hover {
+.statistic-card:hover {
   transform: translateY(-5px);
 }
 
-.stadistic-icon {
+.statistic-icon {
   font-size: 24px;
   display: block;
   margin-bottom: 10px;
 }
 
-.stadistic-value {
+.statistic-value {
   font-size: 28px;
   font-weight: 800;
   margin: 5px 0;
   color: #222;
 }
 
-.stadistic-label {
+.statistic-label {
   font-size: 14px;
   color: #777;
   margin: 0;

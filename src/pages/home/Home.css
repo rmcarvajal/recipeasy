@@ -81,7 +81,7 @@
   justify-content: center;
 }
 
-.stadistics-container {
+.statistics-container{
   display: flex;
   justify-content: center;
   gap: 30px;
