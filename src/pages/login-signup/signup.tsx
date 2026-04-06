@@ -1,10 +1,11 @@
 import mail from "../../assets/Mail.svg"
 import lock from "../../assets/Lock.svg"
 import logo from "../../assets/logo.svg"
+import user from "../../assets/User.svg"
 import chefhat from "../../assets/chefhat.svg"
 import { useNavigate } from "react-router-dom"
 
-export const Login = () => {
+export const Signup = () => {
 
     const navigate = useNavigate()
 
@@ -14,18 +15,29 @@ export const Login = () => {
 
         <div className="flex flex-col items-center lg:w-1/2 ">
 
-            <div className="w-100 h-[698.41px] drop-shadow-2xl bg-white p-10 rounded-[20px] ">
+            <div className="w-100 h-190 drop-shadow-2xl bg-white p-10 rounded-[20px] ">
 
                 <div className="flex w-[320px] items-end justify-between pb-10">
 
-                    <button className="text-coral font-bold border-b-4 h-14 text-[25px] w-37.5">Log In</button>
-                    <button className="text-gray-400 font-bold border-b-2 h-14 text-[25px] w-37.5 hover:border-b-4" onClick={() => navigate("/signup")}>Sign Up</button>
+                    <button className="text-gray-400 font-bold border-b-2 h-14 text-[25px] w-37.5 hover:border-b-4" onClick={() => navigate("/login")}>Log In</button>
+                    <button className="text-coral font-bold border-b-4 h-14 text-[25px] w-37.5">Sign Up</button>
 
                 </div>
 
-                <div className="pb-10">
-                <h1 className="text-[38px] font-extrabold text-charcoal-500">Welcome Back!</h1>
-                <p className="text-[20px] text-charcoal-100">Enter your credentials to access your account</p>
+                <div className="pb-5">
+                <h1 className="text-[38px] font-extrabold text-charcoal-500">Create Account</h1>
+                <p className="text-[20px] text-charcoal-100">Join thousands of home cooks today!</p>
+                </div>
+
+                <div className="pb-5">
+                    <p className="text-charcoal-500">Full Name</p>
+
+                    <div className="flex border-2 border-gray-400 rounded-[18px] h-16.5 items-center">
+                        <div className="p-4.5">
+                            <img src={user} className="w-25.8 h-25.8" alt="user" />
+                        </div>
+                        <input type="text" placeholder="Enter your full name" />
+                    </div>
                 </div>
 
                 <div className="pb-5">
@@ -51,21 +63,25 @@ export const Login = () => {
                 </div>
     
 
-                <div className="flex justify-between items-center pb-5">
-                    <div className="flex">
-                    <input type="checkbox" />
-                    <p className="pl-1 text-charcoal-100">Remember me</p>
-                    </div>
-
-                    <p className="text-coral">Forgot password?</p>
+                <div className="flex flex-row pb-5 text-[14px]">
+                    <p className="pl-1 text-charcoal-100 flex flex-wrap">I agree to the 
+                        <p className="text-coral font-semibold px-1">
+                            Terms & Conditions
+                        </p>
+                        and
+                        <p className="text-coral font-semibold px-1">
+                            Privacy Policy 
+                        </p>
+                    </p>
+           
                 </div>
 
-                <button className="bg-forest text-white w-[320px] h-[77.5px] font-extrabold rounded-[18px] text-[24px]" onClick={() => navigate("/")}>Log In</button>
+                <button className="bg-forest text-white w-[320px] h-[77.5px] font-extrabold rounded-[18px] text-[24px]" onClick={() => navigate("/")}>Create Account</button>
             </div>
             
             <div className="flex items-center pt-10 ">
-                <p className="text-[18px] text-charcoal-100 mr-2">Don't have an account?</p>
-                <button className="text-[20px] text-coral font-semibold hover:underline" onClick={() => navigate("/signup")}>Sign Up</button>
+                <p className="text-[18px] text-charcoal-100 mr-2">Already have an account?</p>
+                <button className="text-[20px] text-coral font-semibold hover:underline" onClick={() => navigate("/login")}>Log in</button>
             </div>
 
         </div>
