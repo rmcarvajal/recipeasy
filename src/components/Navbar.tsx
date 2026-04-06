@@ -11,7 +11,7 @@ export const Navbar = () => {
       
       <div className="nav-links">
         <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>Home</Link>
-        <span style={{ opacity: 0.7 }}>Recipes</span> {/* Aún no tenemos esta página */}
+        <Link to="/recipes" style={{ color: 'white', textDecoration: 'none' }}>Recipes</Link>        
         <Link to="/profile" style={{ color: 'white', textDecoration: 'none' }}>Profile</Link>
       </div>
     </nav>
