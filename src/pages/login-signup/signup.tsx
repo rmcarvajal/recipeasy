@@ -2,7 +2,7 @@ import mail from "../../assets/Mail.svg"
 import lock from "../../assets/Lock.svg"
 import logo from "../../assets/logo.svg"
 import user from "../../assets/User.svg"
-import chefhat from "../../assets/chefhat.svg"
+import chefhat from "../../assets/ChefHat.svg"
 import { useNavigate } from "react-router-dom"
 
 export const Signup = () => {
