@@ -1,7 +1,11 @@
 import { Navbar } from '../../components/Navbar';
+import { useNavigate } from 'react-router-dom';
 import './Profile.css';
 
 const Profile = () => {
+
+const navigate = useNavigate()
+
   return (
     <div className="profile-container">
       <Navbar />
@@ -22,7 +26,7 @@ const Profile = () => {
 
         <div className="profile-actions">
           <button className="btn-edit">Edit Profile</button>
-          <button className="btn-logout">Log out</button>
+          <button className="btn-logout" onClick={() => navigate("/login")}>Log out</button>
         </div>
       </main>
     </div>
