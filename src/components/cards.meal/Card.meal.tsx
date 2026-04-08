@@ -1,5 +1,5 @@
 import './Card.meal.css';
-import type { MealAPI } from '../types/meal'; 
+import type { MealAPI } from '../../types/meal'; 
 
 export const MealCard = ({ meal }: { meal: MealAPI }) => {
   return (
@@ -12,7 +12,7 @@ export const MealCard = ({ meal }: { meal: MealAPI }) => {
       <div className="card-content">
         <h3>{meal.strMeal}</h3>
         <div className="card-info">
-          <span>🏷️ {meal.strCategory}</span>
+          <span>Category: {meal.strCategory}</span>
         </div>
       </div>
     </div>
