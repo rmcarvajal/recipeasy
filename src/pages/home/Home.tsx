@@ -29,17 +29,19 @@ const Home = () => {
           <input type="text" placeholder="Search for recipes..." className="search-input"/>
           <button className="search-button">Search</button>
         </div>
+        
+        <div className="statistics-container">
+              <StatisticCard icon="🍳" value="25+" label="Delicious Recipes" />
+              <StatisticCard icon="📂" value="8+" label="Categories" />
+              <StatisticCard icon="🌎" value="12+" label="Global Cuisines" />
+        </div>
 
         <div className="meals-grid">
           {meals.map((item) => (
             <MealCard key={item.idMeal} meal={item} />
           ))}
         </div>
-        <div className="statistics-container">
-              <StatisticCard icon="🍳" value="25+" label="Delicious Recipes" />
-              <StatisticCard icon="📂" value="8+" label="Categories" />
-              <StatisticCard icon="🌎" value="12+" label="Global Cuisines" />
-        </div>
+        
       </main>
     </div>
   );
