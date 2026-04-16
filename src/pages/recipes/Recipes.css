@@ -78,3 +78,52 @@
 .btn-add:hover, .btn-delete:hover {
   opacity: 0.9;
 }
+
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.recipe-card-wrapper {
+  position: relative;
+}
+
+.delete-card-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 10;
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+.delete-card-btn:hover {
+  transform: scale(1.1);
+  background: #ff3333;
+}
+
+.loading-state, .no-results {
+  margin-top: 60px;
+  font-size: 18px;
+  color: #666;
+  font-style: italic;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
