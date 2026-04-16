@@ -19,4 +19,5 @@ export interface MealAPI {
   ingredients?: Ingredient[];
   steps?: Step[];
   description?: string;
+  strYoutube?: string;
 }

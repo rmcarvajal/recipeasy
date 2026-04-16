@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'; 
 import { Navbar } from '../../components/Navbar';
 import { MealCard } from '../../components/cards.meal/Card.meal';
+import { VideoCard } from '../../components/card.video/Card.video';
 import { getMeals } from '../../services/mealService'; 
 import type { MealAPI } from '../../types/meal'; 
 import './Home.css';
@@ -12,9 +13,12 @@ const Home = () => {
 
   useEffect(() => {
     getMeals('s').then((data) => {
-    setMeals(data.slice(0, 8)); 
-  });
+      setMeals(data); 
+    });
   }, []);
+
+  const recipeMeals = meals.slice(0, 4);
+  const videoMeals = meals.slice(4, 6);
 
   return (
     <div className="home-container">
@@ -36,11 +40,23 @@ const Home = () => {
               <StatisticCard icon="🌎" value="12+" label="Global Cuisines" />
         </div>
 
-        <div className="meals-grid">
-          {meals.map((item) => (
-            <MealCard key={item.idMeal} meal={item} />
-          ))}
-        </div>
+        <section className="home-content-section">
+          <h2 className="section-subtitle">Recetas</h2>
+          <div className="meals-grid">
+            {recipeMeals.map((item) => (
+              <MealCard key={item.idMeal} meal={item} />
+            ))}
+          </div>
+        </section>
+
+        <section className="home-content-section">
+          <h2 className="section-subtitle">Videos</h2>
+          <div className="video-grid">
+            {videoMeals.map((item) => (
+              <VideoCard key={item.idMeal} meal={item} />
+            ))}
+          </div>
+        </section>
         
       </main>
     </div>
