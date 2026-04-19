@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Navbar } from '../../components/Navbar';
 import { MealCard } from '../../components/cards.meal/Card.meal';
+import { RecipeInfo } from '../../components/recipe.info/RecipeInfo';
 import { getMeals } from '../../services/mealService';
 import { getCustomRecipes, deleteRecipe, clearAllRecipes } from '../../services/recipeService';
 import type { MealAPI } from '../../types/meal';
@@ -12,13 +13,13 @@ const Recipes = () => {
   const [recipes, setRecipes] = useState<MealAPI[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
+  const [selectedMeal, setSelectedMeal] = useState<MealAPI | null>(null);
 
   const fetchRecipes = async (search: string = '') => {
     setLoading(true);
     const apiMeals = await getMeals(search);
     const localRecipes = getCustomRecipes();
     
-    // Combine them, filter local by search if needed
     const filteredLocal = localRecipes.filter(r => 
       r.strMeal.toLowerCase().includes(search.toLowerCase())
     );
@@ -81,7 +82,7 @@ const Recipes = () => {
           <div className="recipes-grid">
             {recipes.map((meal) => (
               <div key={meal.idMeal} className="recipe-card-wrapper">
-                <MealCard meal={meal} />
+                <MealCard meal={meal} onClick={() => setSelectedMeal(meal)} />
                 {meal.idMeal.length > 10 && ( // Simple check for local ID (timestamp)
                   <button 
                     className="delete-card-btn" 
@@ -100,6 +101,13 @@ const Recipes = () => {
           <div className="no-results">No recipes found. Try adding your own!</div>
         )}
       </main>
+
+      {selectedMeal && (
+        <RecipeInfo 
+          meal={selectedMeal} 
+          onClose={() => setSelectedMeal(null)} 
+        />
+      )}
     </div>
   );
 };

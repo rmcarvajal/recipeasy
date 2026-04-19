@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Navbar } from '../../components/Navbar';
 import { MealCard } from '../../components/cards.meal/Card.meal';
 import { VideoCard } from '../../components/card.video/Card.video';
+import { RecipeInfo } from '../../components/recipe.info/RecipeInfo';
 import { getMeals } from '../../services/mealService'; 
 import type { MealAPI } from '../../types/meal'; 
 import './Home.css';
@@ -10,12 +11,17 @@ import { StatisticCard } from '../../components/statistics/Card.statistics';
 
 const Home = () => {
   const [meals, setMeals] = useState<MealAPI[]>([]);
+  const [selectedMeal, setSelectedMeal] = useState<MealAPI | null>(null);
 
   useEffect(() => {
     getMeals('s').then((data) => {
       setMeals(data); 
     });
   }, []);
+
+  const handleMealClick = (meal: MealAPI) => {
+    setSelectedMeal(meal);
+  };
 
   const recipeMeals = meals.slice(0, 4);
   const videoMeals = meals.slice(4, 6);
@@ -41,10 +47,14 @@ const Home = () => {
         </div>
 
         <section className="home-content-section">
-          <h2 className="section-subtitle">Recetas</h2>
+          <h2 className="section-subtitle">Recipes</h2>
           <div className="meals-grid">
             {recipeMeals.map((item) => (
-              <MealCard key={item.idMeal} meal={item} />
+              <MealCard 
+                key={item.idMeal} 
+                meal={item} 
+                onClick={() => handleMealClick(item)} 
+              />
             ))}
           </div>
         </section>
@@ -59,6 +69,13 @@ const Home = () => {
         </section>
         
       </main>
+
+      {selectedMeal && (
+        <RecipeInfo 
+          meal={selectedMeal} 
+          onClose={() => setSelectedMeal(null)} 
+        />
+      )}
     </div>
   );
 };

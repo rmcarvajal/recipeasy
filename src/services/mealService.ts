@@ -9,7 +9,7 @@ export const getMeals = async (searchTerm: string = ''): Promise<MealAPI[]> => {
     
     return data.meals || []; 
   } catch (error) {
-    console.error("Error buscando recetas:", error);
+    console.error("Error fetching recipes:", error);
     return [];
   }
 };
