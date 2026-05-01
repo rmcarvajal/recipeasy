@@ -1,19 +1,19 @@
 import { Navbar } from '../../components/Navbar';
 import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout as logoutAction } from '../../store/slices/userSlice';
+import type { RootState } from '../../store';
 import './Profile.css';
 
 const Profile = () => {
   const navigate = useNavigate();
-  const [name, setName] = useState('Sarah Martinez');
-  const [profilePic, setProfilePic] = useState<string | null>(null);
+  const dispatch = useDispatch();
+  const { name, profilePic } = useSelector((state: RootState) => state.user);
 
-  useEffect(() => {
-    const savedName = localStorage.getItem('user_name');
-    const savedPic = localStorage.getItem('user_profile_pic');
-    if (savedName) setName(savedName);
-    if (savedPic) setProfilePic(savedPic);
-  }, []);
+  const handleLogout = () => {
+    dispatch(logoutAction());
+    navigate("/login");
+  };
 
   return (
     <div className="profile-container">
@@ -39,7 +39,7 @@ const Profile = () => {
 
         <div className="profile-actions">
           <button className="btn-edit" onClick={() => navigate("/profile/edit")}>Edit Profile</button>
-          <button className="btn-logout" onClick={() => navigate("/login")}>Log out</button>
+          <button className="btn-logout" onClick={handleLogout}>Log out</button>
         </div>
       </main>
     </div>

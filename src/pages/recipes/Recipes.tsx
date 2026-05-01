@@ -1,51 +1,43 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { Navbar } from '../../components/Navbar';
 import { MealCard } from '../../components/cards.meal/Card.meal';
 import { RecipeInfo } from '../../components/recipe.info/RecipeInfo';
-import { getMeals } from '../../services/mealService';
-import { getCustomRecipes, deleteRecipe, clearAllRecipes } from '../../services/recipeService';
+import { fetchRecipesAsync, deleteRecipeAsync, clearRecipesAsync, setSearchTerm as setReduxSearchTerm } from '../../store/slices/recipesSlice';
+import type { RootState, AppDispatch } from '../../store';
 import type { MealAPI } from '../../types/meal';
 import './Recipes.css';
 
 const Recipes = () => {
   const navigate = useNavigate();
-  const [recipes, setRecipes] = useState<MealAPI[]>([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch<AppDispatch>();
+  const { items: recipes, loading, searchTerm } = useSelector((state: RootState) => state.recipes);
+  
   const [selectedMeal, setSelectedMeal] = useState<MealAPI | null>(null);
 
-  const fetchRecipes = async (search: string = '') => {
-    setLoading(true);
-    const apiMeals = await getMeals(search);
-    const localRecipes = getCustomRecipes();
-    
-    const filteredLocal = localRecipes.filter(r => 
-      r.strMeal.toLowerCase().includes(search.toLowerCase())
-    );
-
-    setRecipes([...filteredLocal, ...apiMeals]);
-    setLoading(false);
-  };
-
   useEffect(() => {
-    fetchRecipes();
-  }, []);
+    dispatch(fetchRecipesAsync(searchTerm));
+  }, [dispatch, searchTerm]);
 
   const handleSearch = () => {
-    fetchRecipes(searchTerm);
+    dispatch(fetchRecipesAsync(searchTerm));
+  };
+
+  const handleSearchChange = (val: string) => {
+    dispatch(setReduxSearchTerm(val));
   };
 
   const handleDeleteAllLocal = () => {
     if (window.confirm('Are you sure you want to delete ALL your custom recipes?')) {
-      clearAllRecipes();
-      fetchRecipes(searchTerm);
+      dispatch(clearRecipesAsync());
+      // Re-fetch after clearing
+      dispatch(fetchRecipesAsync(searchTerm));
     }
   };
 
   const handleDeleteOne = (id: string) => {
-    deleteRecipe(id);
-    fetchRecipes(searchTerm);
+    dispatch(deleteRecipeAsync(id));
   };
 
   return (
@@ -61,7 +53,7 @@ const Recipes = () => {
             placeholder="Search for specific recipes..." 
             className="search-bar-input"
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={(e) => handleSearchChange(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
           />
           <button className="search-bar-button" onClick={handleSearch}>Search</button>

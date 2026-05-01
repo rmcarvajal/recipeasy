@@ -1,12 +1,15 @@
 import { useState, type ChangeEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { Navbar } from '../../components/Navbar';
-import { saveRecipe } from '../../services/recipeService';
+import { addRecipeAsync } from '../../store/slices/recipesSlice';
+import type { AppDispatch } from '../../store';
 import type { MealAPI, Ingredient, Step } from '../../types/meal';
 import './RecipeEditor.css';
 
 const RecipeEditor = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
   
   const [title, setTitle] = useState('');
   const [timeEstimate, setTimeEstimate] = useState('');
@@ -78,7 +81,7 @@ const RecipeEditor = () => {
       description
     };
 
-    saveRecipe(newRecipe);
+    dispatch(addRecipeAsync(newRecipe));
     navigate('/recipes');
   };
 

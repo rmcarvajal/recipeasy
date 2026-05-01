@@ -1,19 +1,23 @@
 import { useState, useEffect, type ChangeEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateProfile } from '../../store/slices/userSlice';
+import type { RootState } from '../../store';
 import { Navbar } from '../../components/Navbar';
 import './EditProfile.css';
 
 const EditProfile = () => {
   const navigate = useNavigate();
-  const [name, setName] = useState('Sarah Martinez');
-  const [profilePic, setProfilePic] = useState<string | null>(null);
+  const dispatch = useDispatch();
+  const user = useSelector((state: RootState) => state.user);
+  
+  const [name, setName] = useState(user.name);
+  const [profilePic, setProfilePic] = useState<string | null>(user.profilePic);
 
   useEffect(() => {
-    const savedName = localStorage.getItem('user_name');
-    const savedPic = localStorage.getItem('user_profile_pic');
-    if (savedName) setName(savedName);
-    if (savedPic) setProfilePic(savedPic);
-  }, []);
+    setName(user.name);
+    setProfilePic(user.profilePic);
+  }, [user]);
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -27,10 +31,7 @@ const EditProfile = () => {
   };
 
   const handleSave = () => {
-    localStorage.setItem('user_name', name);
-    if (profilePic) {
-      localStorage.setItem('user_profile_pic', profilePic);
-    }
+    dispatch(updateProfile({ name, profilePic }));
     navigate('/profile');
   };
 
