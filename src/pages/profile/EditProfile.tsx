@@ -13,10 +13,14 @@ const EditProfile = () => {
   
   const [name, setName] = useState(user.name);
   const [profilePic, setProfilePic] = useState<string | null>(user.profilePic);
+  const [diet, setDiet] = useState(user.diet);
+  const [skillLevel, setSkillLevel] = useState(user.skillLevel);
 
   useEffect(() => {
     setName(user.name);
     setProfilePic(user.profilePic);
+    setDiet(user.diet);
+    setSkillLevel(user.skillLevel);
   }, [user]);
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +35,7 @@ const EditProfile = () => {
   };
 
   const handleSave = () => {
-    dispatch(updateProfile({ name, profilePic }));
+    dispatch(updateProfile({ name, profilePic, diet, skillLevel }));
     navigate('/profile');
   };
 
@@ -70,6 +74,37 @@ const EditProfile = () => {
             onChange={(e) => setName(e.target.value)}
             placeholder="Enter your name"
           />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="diet">Dietary Preference</label>
+          <select 
+            id="diet" 
+            className="form-select"
+            value={diet}
+            onChange={(e) => setDiet(e.target.value)}
+          >
+            <option value="Any">Any</option>
+            <option value="Vegetarian">Vegetarian</option>
+            <option value="Vegan">Vegan</option>
+            <option value="Keto">Keto</option>
+            <option value="Gluten-Free">Gluten-Free</option>
+          </select>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="skillLevel">Cooking Skill Level</label>
+          <select 
+            id="skillLevel" 
+            className="form-select"
+            value={skillLevel}
+            onChange={(e) => setSkillLevel(e.target.value)}
+          >
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+            <option value="Chef">Chef</option>
+          </select>
         </div>
 
         <div className="edit-actions">
