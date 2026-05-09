@@ -78,21 +78,13 @@ const recipesSlice = createSlice({
         state.loading = false;
         state.error = action.error.message || 'Failed to fetch recipes';
       })
-      // addRecipeAsync
       .addCase(addRecipeAsync.fulfilled, (state, action) => {
-        // Option 1: fetch everything again (or dispatch fetchRecipesAsync again)
-        // Option 2: Add it to the top of the list locally
         state.items.unshift(action.payload);
       })
-      // deleteRecipeAsync
       .addCase(deleteRecipeAsync.fulfilled, (state, action) => {
         state.items = state.items.filter(item => item.idMeal !== action.payload);
       })
-      // clearRecipesAsync
       .addCase(clearRecipesAsync.fulfilled, (state) => {
-        // Removes only local ones from state, keeping API ones
-        // Easiest is to just rely on next fetch, or filter them out here.
-        // Assuming ID > 10 chars is local based on Recipes.tsx logic
         state.items = state.items.filter(item => item.idMeal.length <= 10);
       });
   },

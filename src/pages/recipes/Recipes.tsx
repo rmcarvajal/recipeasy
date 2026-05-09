@@ -31,7 +31,6 @@ const Recipes = () => {
   const handleDeleteAllLocal = () => {
     if (window.confirm('Are you sure you want to delete ALL your custom recipes?')) {
       dispatch(clearRecipesAsync());
-      // Re-fetch after clearing
       dispatch(fetchRecipesAsync(searchTerm));
     }
   };
@@ -75,7 +74,7 @@ const Recipes = () => {
             {recipes.map((meal) => (
               <div key={meal.idMeal} className="recipe-card-wrapper">
                 <MealCard meal={meal} onClick={() => setSelectedMeal(meal)} />
-                {meal.idMeal.length > 10 && ( // Simple check for local ID (timestamp)
+                {meal.idMeal.length > 10 && (
                   <button 
                     className="delete-card-btn" 
                     onClick={() => handleDeleteOne(meal.idMeal)}

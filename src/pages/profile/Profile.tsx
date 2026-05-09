@@ -17,12 +17,10 @@ const Profile = () => {
   const { items: recipes } = useSelector((state: RootState) => state.recipes);
   const [selectedMeal, setSelectedMeal] = useState<MealAPI | null>(null);
 
-  // Fetch recipes if they aren't loaded yet
   useEffect(() => {
     dispatch(fetchRecipesAsync(''));
   }, [dispatch]);
 
-  // Filter for local/custom recipes
   const myRecipes = recipes.filter((meal) => meal.idMeal.length > 10);
 
   const handleLogout = () => {

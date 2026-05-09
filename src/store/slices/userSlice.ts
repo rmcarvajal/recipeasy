@@ -26,7 +26,6 @@ const userSlice = createSlice({
       state.diet = action.payload.diet;
       state.skillLevel = action.payload.skillLevel;
       
-      // Sync to localStorage
       localStorage.setItem('user_name', action.payload.name);
       localStorage.setItem('user_diet', action.payload.diet);
       localStorage.setItem('user_skill_level', action.payload.skillLevel);
@@ -37,7 +36,7 @@ const userSlice = createSlice({
       }
     },
     logout: (state) => {
-      state.name = 'Sarah Martinez'; // Or default name
+      state.name = 'Sarah Martinez';
       state.profilePic = null;
       state.diet = 'Any';
       state.skillLevel = 'Beginner';
