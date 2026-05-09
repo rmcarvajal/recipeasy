@@ -78,3 +78,49 @@
   font-weight: bold;
   cursor: pointer;
 }
+
+/* New Profile Sections */
+
+.user-stats, .user-preferences {
+  color: #444;
+  margin: 5px 0;
+  font-size: 15px;
+}
+
+.user-stats strong, .user-preferences strong {
+  color: #2D5A27;
+}
+
+.my-recipes-section {
+  max-width: 900px;
+  margin: 0 auto 40px auto;
+  padding: 0 20px;
+}
+
+.my-recipes-title {
+  font-size: 24px;
+  color: #2D5A27;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.my-recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.empty-recipes {
+  text-align: center;
+  padding: 40px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.empty-recipes p {
+  color: #666;
+  font-size: 18px;
+  margin-bottom: 20px;
+}

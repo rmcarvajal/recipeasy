@@ -1,19 +1,27 @@
 import { useState, useEffect, type ChangeEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateProfile } from '../../store/slices/userSlice';
+import type { RootState } from '../../store';
 import { Navbar } from '../../components/Navbar';
 import './EditProfile.css';
 
 const EditProfile = () => {
   const navigate = useNavigate();
-  const [name, setName] = useState('Sarah Martinez');
-  const [profilePic, setProfilePic] = useState<string | null>(null);
+  const dispatch = useDispatch();
+  const user = useSelector((state: RootState) => state.user);
+  
+  const [name, setName] = useState(user.name);
+  const [profilePic, setProfilePic] = useState<string | null>(user.profilePic);
+  const [diet, setDiet] = useState(user.diet);
+  const [skillLevel, setSkillLevel] = useState(user.skillLevel);
 
   useEffect(() => {
-    const savedName = localStorage.getItem('user_name');
-    const savedPic = localStorage.getItem('user_profile_pic');
-    if (savedName) setName(savedName);
-    if (savedPic) setProfilePic(savedPic);
-  }, []);
+    setName(user.name);
+    setProfilePic(user.profilePic);
+    setDiet(user.diet);
+    setSkillLevel(user.skillLevel);
+  }, [user]);
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -27,10 +35,7 @@ const EditProfile = () => {
   };
 
   const handleSave = () => {
-    localStorage.setItem('user_name', name);
-    if (profilePic) {
-      localStorage.setItem('user_profile_pic', profilePic);
-    }
+    dispatch(updateProfile({ name, profilePic, diet, skillLevel }));
     navigate('/profile');
   };
 
@@ -69,6 +74,37 @@ const EditProfile = () => {
             onChange={(e) => setName(e.target.value)}
             placeholder="Enter your name"
           />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="diet">Dietary Preference</label>
+          <select 
+            id="diet" 
+            className="form-select"
+            value={diet}
+            onChange={(e) => setDiet(e.target.value)}
+          >
+            <option value="Any">Any</option>
+            <option value="Vegetarian">Vegetarian</option>
+            <option value="Vegan">Vegan</option>
+            <option value="Keto">Keto</option>
+            <option value="Gluten-Free">Gluten-Free</option>
+          </select>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="skillLevel">Cooking Skill Level</label>
+          <select 
+            id="skillLevel" 
+            className="form-select"
+            value={skillLevel}
+            onChange={(e) => setSkillLevel(e.target.value)}
+          >
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+            <option value="Chef">Chef</option>
+          </select>
         </div>
 
         <div className="edit-actions">
