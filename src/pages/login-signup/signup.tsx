@@ -1,13 +1,26 @@
 import mail from "../../assets/Mail.svg"
 import lock from "../../assets/Lock.svg"
 import logo from "../../assets/logo.svg"
-import user from "../../assets/User.svg"
+// import user from "../../assets/User.svg"
 import chefhat from "../../assets/ChefHat.svg"
 import { useNavigate } from "react-router-dom"
+import { useState } from "react"
+import { createUserWithEmailAndPassword } from "firebase/auth"
+import { auth } from "../../firebase/config"
+
 
 export const Signup = () => {
 
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
     const navigate = useNavigate()
+
+
+    const Register = async() => {
+        await createUserWithEmailAndPassword(auth, email, password)
+        navigate("/")
+    }
 
     return(
     <div className="bg-smoke flex flex-col items-center lg:flex-row-reverse ">
@@ -29,16 +42,16 @@ export const Signup = () => {
                 <p className="text-[20px] text-charcoal-100">Join thousands of home cooks today!</p>
                 </div>
 
-                <div className="pb-5">
+                {/* <div className="pb-5">
                     <p className="text-charcoal-500">Full Name</p>
 
                     <div className="flex border-2 border-gray-400 rounded-[18px] h-16.5 items-center">
                         <div className="p-4.5">
                             <img src={user} className="w-25.8 h-25.8" alt="user" />
                         </div>
-                        <input type="text" placeholder="Enter your full name" />
+                        <input type="text" placeholder="Enter your full name" onChange={(e) => setName(e.target.value)} />
                     </div>
-                </div>
+                </div> */}
 
                 <div className="pb-5">
                     <p className="text-charcoal-500">Email Address</p>
@@ -47,7 +60,7 @@ export const Signup = () => {
                         <div className="p-4.5">
                             <img src={mail} className="w-25.8 h-25.8" alt="mail" />
                         </div>
-                        <input type="text" placeholder="Enter your email" />
+                        <input type="text" placeholder="Enter your email" onChange={(e) => setEmail(e.target.value)} />
                     </div>
                 </div>
 
@@ -58,7 +71,7 @@ export const Signup = () => {
                         <div className="p-4.5">
                             <img src={lock} className="w-25.8 h-25.8" alt="lock" />
                         </div>
-                        <input type="text" placeholder="Enter your password" />
+                        <input type="text" placeholder="Enter your password" onChange={(e) => setPassword(e.target.value)}/>
                     </div>
                 </div>
     
@@ -76,7 +89,7 @@ export const Signup = () => {
            
                 </div>
 
-                <button className="bg-forest text-white w-[320px] h-[77.5px] font-extrabold rounded-[18px] text-[24px]" onClick={() => navigate("/")}>Create Account</button>
+                <button className="bg-forest text-white w-[320px] h-[77.5px] font-extrabold rounded-[18px] text-[24px]" onClick={Register}>Create Account</button>
             </div>
             
             <div className="flex items-center pt-10 ">
