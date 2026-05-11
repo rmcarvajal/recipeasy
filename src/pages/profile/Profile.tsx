@@ -9,6 +9,9 @@ import { RecipeInfo } from '../../components/recipe.info/RecipeInfo';
 import type { RootState, AppDispatch } from '../../store';
 import type { MealAPI } from '../../types/meal';
 import './Profile.css';
+import { signOut } from "firebase/auth"
+import { auth } from "../../firebase/config"
+
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -25,6 +28,7 @@ const Profile = () => {
 
   const handleLogout = () => {
     dispatch(logoutAction());
+    signOut(auth)
     navigate("/login");
   };
 

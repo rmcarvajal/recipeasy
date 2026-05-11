@@ -3,10 +3,21 @@ import lock from "../../assets/Lock.svg"
 import logo from "../../assets/logo.svg"
 import chefhat from "../../assets/ChefHat.svg"
 import { useNavigate } from "react-router-dom"
+import { useState } from "react"
+import { signInWithEmailAndPassword } from "firebase/auth"
+import { auth } from "../../firebase/config"
 
 export const Login = () => {
 
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
     const navigate = useNavigate()
+
+    const signIn = async() => {
+        await signInWithEmailAndPassword(auth, email, password)
+        navigate("/")
+    }
 
     return(
     <div className="bg-smoke flex flex-col items-center lg:flex-row-reverse ">
@@ -35,7 +46,7 @@ export const Login = () => {
                         <div className="p-4.5">
                             <img src={mail} className="w-25.8 h-25.8" alt="mail" />
                         </div>
-                        <input type="text" placeholder="Enter your email" />
+                        <input type="text" placeholder="Enter your email" onChange={(e) => setEmail(e.target.value)} />
                     </div>
                 </div>
 
@@ -46,7 +57,7 @@ export const Login = () => {
                         <div className="p-4.5">
                             <img src={lock} className="w-25.8 h-25.8" alt="lock" />
                         </div>
-                        <input type="text" placeholder="Enter your password" />
+                        <input type="text" placeholder="Enter your password" onChange={(e) => setPassword(e.target.value)}/>
                     </div>
                 </div>
     
@@ -60,12 +71,12 @@ export const Login = () => {
                     <p className="text-coral">Forgot password?</p>
                 </div>
 
-                <button className="bg-forest text-white w-[320px] h-[77.5px] font-extrabold rounded-[18px] text-[24px]" onClick={() => navigate("/")}>Log In</button>
+                <button className="bg-forest text-white w-[320px] h-[77.5px] font-extrabold rounded-[18px] text-[24px]" onClick={signIn}>Log In</button>
             </div>
             
             <div className="flex items-center pt-10 ">
                 <p className="text-[18px] text-charcoal-100 mr-2">Don't have an account?</p>
-                <button className="text-[20px] text-coral font-semibold hover:underline" onClick={() => navigate("/signup")}>Sign Up</button>
+                <button className="text-[20px] text-coral font-semibold hover:underline" onClick={signIn}>Sign Up</button>
             </div>
 
         </div>
