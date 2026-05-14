@@ -29,7 +29,7 @@ const Profile = () => {
   const handleLogout = () => {
     dispatch(logoutAction());
     signOut(auth)
-    navigate("/login");
+    navigate("/");
   };
 
   return (
