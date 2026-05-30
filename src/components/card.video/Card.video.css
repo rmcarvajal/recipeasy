@@ -88,3 +88,29 @@
 .watch-link:hover {
     text-decoration: underline;
 }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+    .video-card {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .video-thumbnail-container {
+        width: 100%;
+        min-width: unset;
+        height: 160px;
+    }
+
+    .video-content {
+        padding: 12px;
+    }
+
+    .video-title {
+        font-size: 15px;
+    }
+
+    .play-icon {
+        font-size: 24px;
+    }
+}

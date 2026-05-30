@@ -118,6 +118,71 @@
     .modal-hero {
         height: 250px;
     }
+
+    .recipe-info-modal {
+        border-radius: 16px;
+        max-height: 95vh;
+    }
+
+    .recipe-info-overlay {
+        padding: 10px;
+    }
+
+    .modal-hero-overlay h1 {
+        font-size: 24px;
+    }
+
+    .modal-body {
+        padding: 20px;
+    }
+
+    .btn-close-modal {
+        top: 12px;
+        right: 12px;
+        width: 34px;
+        height: 34px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .modal-hero {
+        height: 200px;
+    }
+
+    .modal-hero-overlay {
+        padding: 20px 15px 15px;
+    }
+
+    .modal-hero-overlay h1 {
+        font-size: 20px;
+    }
+
+    .modal-category-badge {
+        font-size: 11px;
+        padding: 3px 10px;
+    }
+
+    .modal-body {
+        padding: 15px;
+    }
+
+    .ingredient-item {
+        font-size: 13px;
+    }
+
+    .section-title {
+        font-size: 17px;
+    }
+
+    .step-card {
+        padding: 12px;
+    }
+
+    .btn-youtube-modal {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
 }
 
 .section-title {

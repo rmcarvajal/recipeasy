@@ -130,3 +130,40 @@
 .btn-cancel:hover {
     background-color: #e0e0e0;
 }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .edit-profile-card {
+        margin: 25px 15px;
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .edit-profile-card {
+        margin: 15px 10px;
+        padding: 20px;
+    }
+
+    .edit-profile-card h2 {
+        font-size: 22px;
+    }
+
+    .avatar-preview {
+        width: 110px;
+        height: 110px;
+    }
+
+    .avatar-placeholder-text {
+        font-size: 44px;
+    }
+
+    .edit-actions {
+        flex-direction: column;
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 14px;
+    }
+}

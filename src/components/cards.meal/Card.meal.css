@@ -62,3 +62,18 @@
   color: #FF7A50; 
   font-weight: 500;
 }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .card-image-container {
+    height: 160px;
+  }
+
+  .card-content h3 {
+    font-size: 1rem;
+  }
+
+  .card-info {
+    font-size: 0.8rem;
+  }
+}

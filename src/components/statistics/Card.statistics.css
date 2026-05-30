@@ -31,3 +31,38 @@
   color: #777;
   margin: 0;
 }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .statistic-card {
+    padding: 18px;
+  }
+
+  .statistic-value {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .statistic-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+    padding: 15px 20px;
+  }
+
+  .statistic-icon {
+    margin-bottom: 0;
+    font-size: 28px;
+  }
+
+  .statistic-value {
+    font-size: 22px;
+    margin: 0;
+  }
+
+  .statistic-label {
+    font-size: 13px;
+  }
+}

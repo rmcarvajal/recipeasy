@@ -20,14 +20,14 @@ export const Login = () => {
     }
 
     return(
-    <div className="bg-smoke flex flex-col items-center lg:flex-row-reverse ">
+    <div className="bg-smoke flex flex-col items-center lg:flex-row-reverse min-h-screen">
 
 
-        <div className="flex flex-col items-center lg:w-1/2 ">
+        <div className="flex flex-col items-center lg:w-1/2 w-full px-4 py-8 lg:py-0">
 
-            <div className="w-100 h-[698.41px] drop-shadow-2xl bg-white p-10 rounded-[20px] ">
+            <div className="w-full max-w-md drop-shadow-2xl bg-white p-6 sm:p-10 rounded-[20px] ">
 
-                <div className="flex w-[320px] items-end justify-between pb-10">
+                <div className="flex w-full max-w-[320px] items-end justify-between pb-10">
 
                     <button className="text-coral font-bold border-b-4 h-14 text-[25px] w-37.5">Log In</button>
                     <button className="text-gray-400 font-bold border-b-2 h-14 text-[25px] w-37.5 hover:border-b-4" onClick={() => navigate("/signup")}>Sign Up</button>
@@ -35,8 +35,8 @@ export const Login = () => {
                 </div>
 
                 <div className="pb-10">
-                <h1 className="text-[38px] font-extrabold text-charcoal-500">Welcome Back!</h1>
-                <p className="text-[20px] text-charcoal-100">Enter your credentials to access your account</p>
+                <h1 className="text-[28px] sm:text-[38px] font-extrabold text-charcoal-500">Welcome Back!</h1>
+                <p className="text-[16px] sm:text-[20px] text-charcoal-100">Enter your credentials to access your account</p>
                 </div>
 
                 <div className="pb-5">
@@ -71,7 +71,7 @@ export const Login = () => {
                     <p className="text-coral">Forgot password?</p>
                 </div>
 
-                <button className="bg-forest text-white w-[320px] h-[77.5px] font-extrabold rounded-[18px] text-[24px]" onClick={signIn}>Log In</button>
+                <button className="bg-forest text-white w-full max-w-[320px] h-[60px] sm:h-[77.5px] font-extrabold rounded-[18px] text-[20px] sm:text-[24px]" onClick={signIn}>Log In</button>
             </div>
             
             <div className="flex items-center pt-10 ">
@@ -82,10 +82,10 @@ export const Login = () => {
         </div>
 
 
-        <div className="w-screen h-210 bg-coral flex flex-col lg:w-1/2 lg:h-full md:p-20 lg:p-30">
-            <img src={logo} className="w-[361.41px] h-20 mt-4" alt="logo" />
+        <div className="w-full bg-coral flex flex-col lg:w-1/2 lg:h-full p-8 sm:p-12 md:p-20 lg:p-30">
+            <img src={logo} className="w-[250px] sm:w-[361.41px] h-auto mt-4" alt="logo" />
 
-            <div className="flex flex-col text-white font-extrabold text-[55px] ml-4">
+            <div className="flex flex-col text-white font-extrabold text-[32px] sm:text-[42px] lg:text-[55px] ml-4">
                 <p>
                     Your
                 </p>

@@ -127,3 +127,66 @@
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .recipes-content {
+    padding: 40px 15px;
+  }
+
+  .recipes-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .search-bar-container {
+    max-width: 100%;
+  }
+
+  .recipes-actions {
+    flex-wrap: wrap;
+  }
+
+  .recipes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .recipes-title {
+    font-size: 26px;
+  }
+
+  .recipes-actions {
+    flex-direction: column;
+  }
+
+  .btn-add, .btn-delete {
+    width: 100%;
+    text-align: center;
+  }
+
+  .recipes-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 25px;
+  }
+
+  .search-bar-container {
+    flex-direction: column;
+    border-radius: 12px;
+  }
+
+  .search-bar-button {
+    padding: 12px;
+  }
+
+  .delete-card-btn {
+    top: -8px;
+    right: -8px;
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+  }
+}
