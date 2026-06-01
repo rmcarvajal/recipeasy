@@ -5,7 +5,7 @@ import { supabase } from '../supabase/client';
 
 export const getMeals = async (searchTerm: string = ''): Promise<MealAPI[]> => {
   try {
-    const supResponse = await supabase.from('Recipe').select('*')
+    const supResponse = await supabase.from('Recipe').select('*').ilike("strMeal",`%${searchTerm}%`)
 //    const response = await fetch(`${API_URL}${searchTerm}`);
     const data = supResponse.data;
     console.log(supResponse)
