@@ -1,73 +1,124 @@
-# React + TypeScript + Vite
+## Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Brief explanation of: RECIPEASY
 
-Currently, two official plugins are available:
+Recipeasy is a platform meant to make recipe sharing a lot more convenient for everyone.
+It was developed due to the fact that a lot of recipe hosting websites are either managed by one single person or a handful of individuals, and if you wanted to share your recipes you'd have to make your own website or blog.
+With a single platform like Recipeasy, instead of having to dig through countless pages, you have a single place to go to for finding what you want to make.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Current Scope
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Status
 
-## Expanding the ESLint configuration
+> The repository is currently focused on moving from The meal DB to our own supabase database
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Architecture
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+| Category | Technologies            |
+| -------- | ----------------------- |
+| Core     | React, TypeScript, Vite |
+| UI       | Ant Design              |
+| State    | Valtio                  |
+| Testing  | Vitest                  |
+| Tooling  | ESLint, Prettier        |
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+> See package.json for exact versions.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Getting Started
+
+### Prerequisites
+
+* Node.js 22+
+* npm
+
+### Installation
+
+bash
+npm install
+
+
+### Run Locally
+
+bash
+npm run dev
+
+
+---
+
+## Available Scripts
+
+| Command        | Description              |
+| -------------- | ------------------------ |
+| npm run dev    | Start development server |
+| npm run build  | Create production build  |
+| npm run lint   | Run ESLint               |
+
+---
+
+## Development Standards
+
+* ESLint + Prettier
+* Conventional Commits
+
+Example commit:
+
+feat: added profile page
+
+---
+
+## Project Structure
+
+text
+src/
+├── assets/
+├── components/
+    ├── card.video/
+    ├── cards.meal/    
+    ├── recipe.info/
+    └── statistics
+├── context/
+├── firebase/
+├── pages/
+    ├── home/
+    ├── login-signup/
+    ├── profile/
+    └── recipes/
+├── routes/
+├── services/
+├── store/
+    └── slices/
+├── types/
+├── App.css
+├── App.tsx
+├── index.css
+└── main.tsx
+
+
+---
+
+## Documentation
+
+Additional documentation can be found under:
+
+text
+docs/
+
+
+---
+
+## Ownership
+
+*Team:* RECIPEASY
+
+*Maintainers:*
+
+* Daniel Felipe Rivas
+* Rosa María Carvajal Cuellar
